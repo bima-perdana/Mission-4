@@ -3,49 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do-List</title>
+    <title>Mission 4: To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>TO DO LIST</h1>
-    </header>
     <main>
-        <div class="container">
-            <section>
-                <table>
+        <div class="container">                 
+            <form class="form todo" onsubmit="tambahToDo(event)">
+                <h1 class="dm-sans-bold dm-form">Form To Do List</h1>
+                <div class="input-container">
+                    <label class="dm-sans-reguler" for="name">Nama </label><br>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-container">
+                    <label class="dm-sans-reguler" for="jabatan">Jabatan </label><br>
+                    <input type="text" id="jabatan" name="jabatan" required>
+                </div>
+                <div class="input-container">
+                    <label class="dm-sans-reguler" for="tugas">Tugas </label><br>
+                    <textarea id="tugas" name="tugas" rows="4" cols="50"></textarea>
+                </div>
+                <div class="input-container">
+                    <label class="dm-sans-reguler" for="level">Level Prioritas</label><br>
+                    <select name="level" id="level">
+                        <option class="dm-sans-reguler" value="Low">Low</option>
+                        <option class="dm-sans-reguler" value="Medium">Medium</option>
+                        <option class="dm-sans-reguler" value="High">High</option>
+                    </select>
+                </div>
+                <div class="center">
+                    <button class="button-form dm-sans-reguler" type="submit">Kirim</button>
+                </div>
+            </form>
+            
+            <h1 class="dm-sans-bold dm-form">To Do List</h1>
+            <table id="toDo">
+                <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Time</th>
-                        <th>Tugas</th>
-                        <th>Level</th>
-                        <th>Nama</th>
-                        <th>Jabatan</th>
+                        <th class="dm-sans-bold center">Waktu</th>
+                        <th class="dm-sans-bold center">Nama</th>
+                        <th class="dm-sans-bold center">Jabatan</th>
+                        <th class="dm-sans-bold center">Tugas</th>
+                        <th class="dm-sans-bold center">Level</th>
+                        <th class="dm-sans-bold center">Selesai</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </section>
-
-            <section>
-                <form>
-                    <label for="nama">Nama:</label><br>
-                    <input type="text" id="name" name="nama"><br>
-                    <label for="jabatan">Jabatan:</label><br>
-                    <input type="text" id="jabatan" name="jabatan">
-                    <textarea name="todo" rows="10" cols="30">
-                        
-                    </textarea>
-                 </form>
-            </section>
-
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="center">
+                <button class="button-form dm-sans-reguler" onclick="hapusToDo()">Hapus Semua</button><br>
+                <a href="done.html" class="button-form dm-sans-reguler" target="_blank" onclick="completedToDo()">To Do Selesai</a>
+            </div>
         </div>
     </main>
-    
+    <script src="main.js"></script>
 </body>
 </html>
